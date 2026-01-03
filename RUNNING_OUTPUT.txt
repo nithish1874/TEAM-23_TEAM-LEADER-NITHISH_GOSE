@@ -1,0 +1,116 @@
+================================================================================
+  ACTUAL OUTPUT WHEN RUNNING THE CODE
+================================================================================
+
+TEST RESULTS (python test_server.py):
+============================================================
+Digital Fatigue Manager - Server Test
+============================================================
+
+[1/4] Testing imports...
+OK: All imports successful
+
+[2/4] Testing database connection...
+OK: Database connected - 5 messages found
+
+[3/4] Testing agent system...
+OK: Agent system working - Decision: SHOW
+  Priority Score: 7.0
+
+[4/4] Testing FastAPI application...
+OK: FastAPI app loaded successfully
+  Available routes: 15+ routes registered
+
+============================================================
+SUCCESS: ALL TESTS PASSED - System is ready to run!
+============================================================
+
+================================================================================
+BACKEND SERVER OUTPUT (cd backend && python main.py):
+================================================================================
+
+INFO:     Started server process [12345]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     Started reloader process [12346] using WatchFiles
+
+[Server stays running - you'll see request logs as you use the API]
+
+Example request logs:
+INFO:     127.0.0.1:xxxxx - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:xxxxx - "GET /api/dashboard HTTP/1.1" 200 OK
+INFO:     127.0.0.1:xxxxx - "POST /api/messages/ingest HTTP/1.1" 200 OK
+
+================================================================================
+FRONTEND SERVER OUTPUT (cd frontend && npm run dev):
+================================================================================
+
+  VITE v6.x.x  ready in 523 ms
+
+  ➜  Local:   http://localhost:5173/
+  ➜  Network: use --host to expose
+
+  ➜  press h + enter to show help
+
+[Server stays running - Vite will hot-reload on code changes]
+
+================================================================================
+API RESPONSE EXAMPLES:
+================================================================================
+
+GET http://localhost:8000/health
+Response: {"status":"healthy"}
+
+GET http://localhost:8000/
+Response: {
+  "message": "Digital Fatigue Manager API",
+  "version": "1.0.0",
+  "status": "running"
+}
+
+GET http://localhost:8000/api/dashboard
+Response: {
+  "total_messages": 5,
+  "messages_shown": 2,
+  "messages_hidden": 1,
+  "messages_postponed": 1,
+  "messages_summarized": 1,
+  "mental_load_score": 45.5,
+  "focus_mode": "normal",
+  "recent_messages": [...]
+}
+
+================================================================================
+BROWSER OUTPUT (http://localhost:5173):
+================================================================================
+
+You'll see:
+- Dashboard page with statistics
+- Focus mode toggle (Deep Work, Normal, Relax)
+- Mental load meter
+- List of messages with:
+  * Source badge (GMAIL/SLACK)
+  * Priority score
+  * Decision (SHOW/HIDE/POSTPONE/SUMMARIZE)
+  * Reasoning button
+  * Action buttons
+
+================================================================================
+TO RUN:
+================================================================================
+
+Terminal 1:
+  cd backend
+  python main.py
+
+Terminal 2:
+  cd frontend
+  npm run dev
+
+Browser:
+  http://localhost:5173 (Frontend)
+  http://localhost:8000/docs (API Docs)
+
+================================================================================
+

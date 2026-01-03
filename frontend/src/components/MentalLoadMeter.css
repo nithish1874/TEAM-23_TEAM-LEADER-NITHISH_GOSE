@@ -1,0 +1,59 @@
+.mental-load-meter {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  flex: 1;
+  min-width: 300px;
+}
+
+.mental-load-meter h3 {
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.meter-container {
+  margin-bottom: 1rem;
+}
+
+.meter-bar {
+  width: 100%;
+  height: 30px;
+  background-color: #e0e0e0;
+  border-radius: 15px;
+  overflow: hidden;
+  margin-bottom: 0.5rem;
+}
+
+.meter-fill {
+  height: 100%;
+  transition: width 0.3s ease;
+  border-radius: 15px;
+}
+
+.meter-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.meter-score {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #333;
+}
+
+.meter-label {
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.meter-description {
+  font-size: 0.85rem;
+  color: #666;
+  line-height: 1.5;
+  margin-top: 0.5rem;
+}
+
